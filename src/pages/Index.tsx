@@ -20,25 +20,25 @@ const Index = () => {
           <div className="relative">
             <HeroSection />
             
-            {/* Floating cards around the hero */}
-            <div className="absolute -top-20 -left-32 animate-fade-in" style={{ animationDelay: '0.5s' }}>
+            {/* 4 Floating cards positioned around the hero without text collision */}
+            {/* Top Left */}
+            <div className="absolute -top-24 -left-60 animate-fade-in hidden lg:block" style={{ animationDelay: '0.5s' }}>
               <ResumeBuilderCard />
             </div>
             
-            <div className="absolute -top-16 right-8 animate-fade-in" style={{ animationDelay: '0.8s' }}>
-              <PersonalCard />
-            </div>
-            
-            <div className="absolute top-16 -right-40 animate-fade-in" style={{ animationDelay: '1.1s' }}>
+            {/* Top Right */}
+            <div className="absolute -top-24 -right-60 animate-fade-in hidden lg:block" style={{ animationDelay: '0.8s' }}>
               <DataAnalyticsCard />
             </div>
             
-            <div className="absolute top-32 right-12 animate-fade-in" style={{ animationDelay: '1.4s' }}>
-              <ProfileCard />
+            {/* Bottom Left */}
+            <div className="absolute -bottom-20 -left-60 animate-fade-in hidden lg:block" style={{ animationDelay: '1.1s' }}>
+              <ResumeCard />
             </div>
             
-            <div className="absolute -bottom-8 -left-36 animate-fade-in" style={{ animationDelay: '1.7s' }}>
-              <ResumeCard />
+            {/* Bottom Right */}
+            <div className="absolute -bottom-20 -right-60 animate-fade-in hidden lg:block" style={{ animationDelay: '1.4s' }}>
+              <ProfileCard />
             </div>
           </div>
           
