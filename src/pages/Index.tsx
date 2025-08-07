@@ -40,7 +40,7 @@ const Index = () => {
                     <FileText className="w-4 h-4 text-primary" />
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-sm font-semibold text-card-foreground mb-1">Resume</h4>
+                    <h4 className="text-sm font-semibold text-card-foreground mb-1">Profile</h4>
                     <div className="space-y-1">
                       <div className="h-2 bg-muted rounded-full w-full"></div>
                       <div className="h-2 bg-muted rounded-full w-3/4"></div>
@@ -90,7 +90,7 @@ const Index = () => {
                     <FileText className="w-6 h-6 text-primary" />
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-sm font-semibold text-card-foreground mb-1">Resume Craft</h4>
+                    <h4 className="text-sm font-semibold text-card-foreground mb-1">Email Finder</h4>
                     <div className="space-y-1">
                       <div className="h-1.5 bg-muted rounded-full w-full"></div>
                       <div className="h-1.5 bg-muted rounded-full w-2/3"></div>
@@ -110,7 +110,7 @@ const Index = () => {
                     <User className="w-5 h-5 text-primary" />
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-sm font-semibold text-card-foreground mb-2">Profile</h4>
+                    <h4 className="text-sm font-semibold text-card-foreground mb-2">Cover Letter</h4>
                     <div className="space-y-1">
                       <div className="h-1.5 bg-muted rounded-full w-full"></div>
                       <div className="h-1.5 bg-muted rounded-full w-3/4"></div>

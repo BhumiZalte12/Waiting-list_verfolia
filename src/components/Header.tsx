@@ -24,7 +24,7 @@ export default function Navbar() {
 
   const navLinks = [
     { title: "Home", path: "/" },
-    
+   
   ];
 
   const handleFeatureClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -41,151 +41,122 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Main Navbar */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
-        <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-
-          <div className="flex-1 flex justify-start">
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden">
-               
-                <img src="/Logo.png" alt="Verfolia Logo" className="w-full h-full object-cover" />
-              </div>
-              <span className="font-bold text-lg text-foreground">Verfolia</span>
-            </Link>
-          </div>
-        
-
-          {/* Center Section: Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-x-8">
-            {navLinks.map((link) => (
-              <Link key={link.title} to={link.path} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                {link.title}
+      <nav className="fixed top-6 left-0 right-0 z-50 w-full">
+        <div className="mx-auto max-w-4xl px-6">
+          <div
+            className="flex items-center justify-between px-6 py-3 rounded-3xl"
+            style={{
+              backdropFilter: "blur(20px)",
+              backgroundColor: "rgba(0, 0, 0, 0.2)", // Darker for better visibility
+              border: "1px solid rgba(255, 255, 255, 0.1)",
+            }}
+          >
+            {/* Logo Section */}
+            <div className="flex items-center">
+              <Link to="/" className="flex items-center space-x-3">
+                <div className="w-9 h-9 bg-white rounded-lg flex items-center justify-center overflow-hidden">
+                   <img src="/Logo.png" alt="Verfolia Logo" className="w-full h-full object-cover" />
+                </div>
+                <span className="text-white text-2xl font-bold tracking-tight">
+                  Verfolia
+                </span>
               </Link>
-            ))}
+            </div>
 
-            {/* Features Dropdown */}
-            <div className="relative">
-              <button
-                onClick={() => setFeaturesOpen((prev) => !prev)}
-                onMouseEnter={() => setFeaturesOpen(true)}
-                className="flex items-center gap-x-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <span>Features</span>
-                <ChevronDown className={`h-4 w-4 transition-transform ${featuresOpen ? 'rotate-180' : ''}`} />
-              </button>
+            {/* Desktop Nav Links */}
+            <div className="hidden md:flex items-center space-x-2 mx-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className="px-4 py-2 rounded-2xl text-gray-400 hover:text-white transition-colors duration-200 text-sm font-medium"
+                >
+                  {link.title}
+                </Link>
+              ))}
+               {/* Features Dropdown */}
+              <div className="relative">
+                <button
+                  onMouseEnter={() => setFeaturesOpen(true)}
+                  className="flex items-center gap-x-1 px-4 py-2 rounded-2xl text-gray-400 hover:text-white transition-colors duration-200 text-sm font-medium"
+                >
+                  <span>Features</span>
+                  <ChevronDown className={`h-4 w-4 transition-transform ${featuresOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                <AnimatePresence>
+                  {featuresOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      transition={{ duration: 0.2, ease: "easeOut" }}
+                      className="absolute right-0 z-50 mt-3 w-80 origin-top-right rounded-xl shadow-xl bg-background border border-border"
+                      onMouseLeave={() => setFeaturesOpen(false)}
+                    >
+                      <div className="p-2">
+                        {features.map((feature) => {
+                          const Icon = feature.icon;
+                          return (
+                            <a href={feature.path} key={feature.title} onClick={handleFeatureClick} className="block p-3 rounded-lg hover:bg-muted transition-colors">
+                              <div className="flex items-start space-x-4">
+                                <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
+                                  <Icon className="w-4 h-4 text-primary" />
+                                </div>
+                                <div className="flex-1">
+                                  <p className="text-foreground font-medium text-sm">{feature.title}</p>
+                                  <p className="text-xs text-muted-foreground">{feature.description}</p>
+                                </div>
+                              </div>
+                            </a>
+                          );
+                        })}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </div>
 
-              <AnimatePresence>
-                {featuresOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                    transition={{ duration: 0.2, ease: "easeOut" }}
-                    className="absolute right-0 z-50 mt-3 w-80 origin-top-right rounded-xl shadow-xl bg-background border border-border"
-                    onMouseLeave={() => setFeaturesOpen(false)}
-                  >
-                    <div className="p-2">
-                      {features.map((feature) => {
-                        const Icon = feature.icon;
-                        return (
-                          <a href={feature.path} key={feature.title} onClick={handleFeatureClick} className="block p-3 rounded-lg hover:bg-muted transition-colors">
-                            <div className="flex items-start space-x-4">
-                              <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                                <Icon className="w-4 h-4 text-primary" />
-                              </div>
-                              <div className="flex-1">
-                                <p className="text-foreground font-medium text-sm">{feature.title}</p>
-                                <p className="text-xs text-muted-foreground">{feature.description}</p>
-                              </div>
-                            </div>
-                          </a>
-                        );
-                      })}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+            {/* Right Side Actions */}
+            <div className="flex items-center space-x-3">
+                {/* Mobile Menu Button */}
+                <button
+                  onClick={() => setMobileMenuOpen(true)}
+                  className="md:hidden size-9 flex items-center justify-center text-white"
+                >
+                  <svg width={20} height={20} fill="currentColor"><path d="M3 5h14M3 12h14M3 19h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"></path></svg>
+                </button>
             </div>
           </div>
+        </div>
+      </nav>
 
-          {/* Right Section: Mobile Menu Trigger */}
-          <div className="flex-1 flex justify-end">
-            <button
-              type="button"
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-foreground md:hidden"
-              onClick={() => setMobileMenuOpen(true)}
-            >
-              <Menu className="h-6 w-6" />
-            </button>
-          </div>
-        </nav>
-      </header>
-
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 md:hidden"
-          >
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/20 backdrop-blur-sm"
-              onClick={() => setMobileMenuOpen(false)}
-            />
-            <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-background p-6"
-            >
-              <div className="flex items-center justify-between">
-                <span className="font-bold text-lg text-foreground">Verfolia</span>
-                <button
-                  type="button"
-                  className="-m-2.5 rounded-md p-2.5 text-foreground"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <X className="h-6 w-6" />
-                </button>
-              </div>
-              <div className="mt-6 flow-root">
-                <div className="-my-6 divide-y divide-border">
-                  <div className="space-y-2 py-6">
-                    {navLinks.map((link) => (
-                      <Link key={link.title} to={link.path} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-foreground hover:bg-muted">
-                        {link.title}
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+          <div className="fixed inset-0 z-[60] md:hidden">
+              <div className="absolute inset-0 bg-black/90 backdrop-blur-md" onClick={() => setMobileMenuOpen(false)} />
+              <div className="relative h-full flex flex-col p-6">
+                  <div className="flex items-center justify-between">
+                      <Link to="/" className="flex items-center space-x-3">
+                          <div className="w-9 h-9 bg-white rounded-lg flex items-center justify-center overflow-hidden">
+                            <img src="/logo.png" alt="Verfolia Logo" className="w-full h-full object-cover" />
+                          </div>
+                          <span className="text-white text-2xl font-bold tracking-tight">
+                          Verfolia
+                          </span>
                       </Link>
-                    ))}
-                    <p className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-foreground">Features</p>
-                    {features.map((feature) => (
-                        <a key={feature.title} href={feature.path} onClick={(e) => {
-                          e.preventDefault();
-                          setMobileMenuOpen(false);
-                          const targetId = e.currentTarget.getAttribute('href')?.substring(1);
-                          if (targetId) {
-                            const targetElement = document.getElementById(targetId);
-                            if (targetElement) {
-                              targetElement.scrollIntoView({ behavior: 'smooth' });
-                            }
-                          }
-                        }} className="-mx-3 block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-muted-foreground hover:bg-muted">
-                            {feature.title}
-                        </a>
-                    ))}
+                      <button onClick={() => setMobileMenuOpen(false)} className="size-10 flex items-center justify-center text-white"><X className="h-6 w-6" /></button>
                   </div>
-                </div>
+                  <nav className="flex-1 flex flex-col justify-center items-center space-y-8">
+                    {navLinks.map((link) => (
+                        <Link key={link.path} to={link.path} onClick={() => setMobileMenuOpen(false)} className="block text-3xl font-semibold text-white">{link.title}</Link>
+                    ))}
+                     <a href="#features" onClick={(e) => {handleFeatureClick(e); setMobileMenuOpen(false);}} className="block text-3xl font-semibold text-white">Features</a>
+                  </nav>
               </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </div>
+      )}
     </>
   );
 }
