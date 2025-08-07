@@ -24,6 +24,8 @@ export default function Navbar() {
 
   const navLinks = [
     { title: "Home", path: "/" },
+        { title: "Docs", path: "https://www.notion.so/Verfolia-Documentation-24722774e30a80e48922d21361630f9f?source=copy_link", external: true }
+
     
   ];
 

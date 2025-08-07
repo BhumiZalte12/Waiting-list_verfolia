@@ -1,11 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from '@formspree/react';
+import { CheckCircle2 } from 'lucide-react';
 
 export function WaitlistHero() {
-  // Corrected: Use only the form ID, not the full URL
+  // Replace 'YOUR_FORM_ID' with the actual ID from your Formspree dashboard
   const [state, handleSubmit] = useForm("xwpqwvka");
-https://formspree.io/f/myzpjadj
+
   if (state.succeeded) {
     return (
         <motion.div
@@ -26,10 +27,11 @@ https://formspree.io/f/myzpjadj
                 backdropFilter: 'blur(18px)',
             }}
         >
+            <CheckCircle2 className="w-16 h-16 text-green-400 mb-4" />
             <h1 className="font-bold text-2xl text-white tracking-tight drop-shadow-md">
                 Thanks for joining!
             </h1>
-            <p className="mt-4 text-blue-100/80">
+            <p className="mt-2 text-blue-100/80">
                 We'll be in touch soon.
             </p>
         </motion.div>

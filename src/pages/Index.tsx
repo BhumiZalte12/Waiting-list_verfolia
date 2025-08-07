@@ -29,7 +29,7 @@ const Index = () => {
             <WaitlistHero />
             
             <div className="absolute inset-0 hidden lg:block">
-              {/* Resume Card - Top Left */}
+              {/* Cover Letter Card - Top Left */}
               <FloatingCard
                 className="absolute -top-8 -left-64 pointer-events-none"
                 delay="none"
@@ -40,7 +40,7 @@ const Index = () => {
                     <FileText className="w-4 h-4 text-primary" />
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-sm font-semibold text-card-foreground mb-1">Profile</h4>
+                    <h4 className="text-sm font-semibold text-card-foreground mb-1">Cover Letter</h4>
                     <div className="space-y-1">
                       <div className="h-2 bg-muted rounded-full w-full"></div>
                       <div className="h-2 bg-muted rounded-full w-3/4"></div>
@@ -79,7 +79,7 @@ const Index = () => {
                 </div>
               </FloatingCard>
 
-              {/* Resume Craft Card - Bottom Left */}
+              {/* Email Finder Card - Bottom Left */}
               <FloatingCard
                 className="absolute -bottom-28 -left-56 pointer-events-none"
                 delay="delayed"
@@ -87,7 +87,7 @@ const Index = () => {
               >
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
-                    <FileText className="w-6 h-6 text-primary" />
+                    <span className="text-2xl">📧</span>
                   </div>
                   <div className="flex-1">
                     <h4 className="text-sm font-semibold text-card-foreground mb-1">Email Finder</h4>
@@ -110,7 +110,7 @@ const Index = () => {
                     <User className="w-5 h-5 text-primary" />
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-sm font-semibold text-card-foreground mb-2">Cover Letter</h4>
+                    <h4 className="text-sm font-semibold text-card-foreground mb-2">Profile</h4>
                     <div className="space-y-1">
                       <div className="h-1.5 bg-muted rounded-full w-full"></div>
                       <div className="h-1.5 bg-muted rounded-full w-3/4"></div>
