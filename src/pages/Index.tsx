@@ -19,7 +19,7 @@ const Index = () => {
       {/* Main Content */}
       <div className="relative z-10">
         {/* Hero Section */}
-        <section className="min-h-screen flex flex-col items-center justify-start gap-24 px-6 relative pt-32">
+        <section className="min-h-screen flex flex-col items-center justify-start gap-24 px-6 relative pt-32 pb-48">
           
           {/* Top Text Content */}
           <HeroSection />
@@ -31,7 +31,7 @@ const Index = () => {
             <div className="absolute inset-0 hidden lg:block">
               {/* Resume Card - Top Left */}
               <FloatingCard
-                className="absolute -top-8 -left-64"
+                className="absolute -top-8 -left-64 pointer-events-none"
                 delay="none"
                 size="md"
               >
@@ -52,7 +52,7 @@ const Index = () => {
 
               {/* Data Analytics Card - Top Right */}
               <FloatingCard
-                className="absolute -top-4 -right-72"
+                className="absolute -top-4 -right-72 pointer-events-none"
                 delay="delayed-2"
                 size="lg"
               >
@@ -81,7 +81,7 @@ const Index = () => {
 
               {/* Resume Craft Card - Bottom Left */}
               <FloatingCard
-                className="absolute -bottom-28 -left-56"
+                className="absolute -bottom-28 -left-56 pointer-events-none"
                 delay="delayed"
                 size="md"
               >
@@ -101,7 +101,7 @@ const Index = () => {
 
               {/* Profile Card - Bottom Right */}
               <FloatingCard
-                className="absolute -bottom-24 -right-60"
+                className="absolute -bottom-24 -right-60 pointer-events-none"
                 delay="none"
                 size="md"
               >
