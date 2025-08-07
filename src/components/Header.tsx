@@ -10,7 +10,6 @@ import {
   FileText,
   Users
 } from "lucide-react";
-import myPhoto from '@/assets/logo.png';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -46,15 +45,16 @@ export default function Navbar() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
 
-          {/* Left Section: Logo */}
           <div className="flex-1 flex justify-start">
             <Link to="/" className="flex items-center space-x-2">
               <div className="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden">
-                <img src={myPhoto} alt="Verfolia Logo" className="w-full h-full object-cover" />
+               
+                <img src="/Logo.png" alt="Verfolia Logo" className="w-full h-full object-cover" />
               </div>
               <span className="font-bold text-lg text-foreground">Verfolia</span>
             </Link>
           </div>
+        
 
           {/* Center Section: Desktop Navigation */}
           <div className="hidden md:flex items-center gap-x-8">
