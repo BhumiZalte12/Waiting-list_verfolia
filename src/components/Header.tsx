@@ -24,7 +24,7 @@ export default function Navbar() {
 
   const navLinks = [
     { title: "Home", path: "/" },
-    { title: "About", path: "/about" }
+    
   ];
 
   const handleFeatureClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
