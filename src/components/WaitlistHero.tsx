@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -17,7 +19,7 @@ export const WaitlistHero = () => {
       });
       return;
     }
-    
+
     toast({
       title: "Welcome to the waitlist!",
       description: "We'll notify you when Verfolia launches.",
@@ -36,7 +38,7 @@ export const WaitlistHero = () => {
             for Verfolia
           </h2>
         </div>
-        
+
         <div className="w-full space-y-4">
           <Input
             type="text"
@@ -44,7 +46,7 @@ export const WaitlistHero = () => {
             readOnly
             className="w-full bg-secondary/50 border-primary/30 text-center font-medium"
           />
-          
+
           <Input
             type="email"
             placeholder="Enter your email"
@@ -52,7 +54,7 @@ export const WaitlistHero = () => {
             onChange={(e) => setEmail(e.target.value)}
             className="w-full bg-background/50 border-primary/30"
           />
-          
+
           <Button 
             onClick={handleJoinWaitlist}
             className="w-full bg-foreground text-background hover:bg-foreground/90 font-semibold py-3 rounded-lg"

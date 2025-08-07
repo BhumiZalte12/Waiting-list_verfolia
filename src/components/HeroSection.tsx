@@ -1,25 +1,25 @@
 import { useState } from "react";
+import { toast } from "sonner"; // <-- 1. Changed the import
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Share2, Linkedin, Instagram } from "lucide-react";
-import { toast } from "@/hooks/use-toast";
 
 export const HeroSection = () => {
   const [email, setEmail] = useState("");
 
   const handleJoinWaitlist = () => {
-    if (!email) {
-      toast({
-        title: "Email required",
-        description: "Please enter your email address to join the waitlist.",
-        variant: "destructive"
+    // A little validation to make the error toast appear
+    if (!email || !email.includes('@')) {
+      // 2. Using toast.error() for an error message
+      toast.error("Invalid Email", {
+        description: "Please enter a valid email address to join.",
       });
       return;
     }
     
-    toast({
-      title: "Welcome to the waitlist!",
-      description: "We'll notify you when Verfolia launches.",
+    // 3. Using toast.success() for the success message
+    toast.success("Welcome to the waitlist!", {
+      description: "We'll notify you when Verfolia launches. Thanks for joining!",
     });
     setEmail("");
   };
@@ -33,16 +33,15 @@ export const HeroSection = () => {
       });
     } else {
       navigator.clipboard.writeText(window.location.href);
-      toast({
-        title: "Link copied!",
-        description: "Share link copied to clipboard.",
+      // 4. Using a neutral toast for information
+      toast("Link copied!", {
+        description: "Share link copied to your clipboard.",
       });
     }
   };
 
   return (
     <div className="text-center space-y-8 max-w-4xl mx-auto">
-      {/* Main Headline */}
       <div className="space-y-4">
         <h1 className="text-5xl md:text-6xl font-bold text-foreground leading-tight">
           Your Professional Identity,{" "}
@@ -56,7 +55,6 @@ export const HeroSection = () => {
         </p>
       </div>
 
-      {/* Waitlist Form */}
       <div className="flex flex-col items-center space-y-4 max-w-md mx-auto">
         <div className="flex w-full space-x-2">
           <Input
@@ -82,7 +80,6 @@ export const HeroSection = () => {
           </Button>
         </div>
         
-        {/* Social Links */}
         <div className="flex items-center space-x-4">
           <Button 
             variant="ghost" 
