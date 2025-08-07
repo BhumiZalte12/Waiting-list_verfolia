@@ -1,4 +1,3 @@
-
 import {
   BarChart3,
   PieChart,
@@ -9,11 +8,11 @@ import {
   Wand,     // For Builder
   FilePlus2 // For Builder
 } from "lucide-react";
-import { FloatingCard } from "./FloatingCard";
+import { FloatingCard } from "./floating-card";
 
 export const DataAnalyticsCard = () => {
   return (
-    <FloatingCard className="w-72 h-48" delay={0.5}>
+    <FloatingCard className="w-72 h-48" delay="none">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-base font-bold text-foreground">Data Analytics</h3>
         <BarChart3 className="w-5 h-5 text-primary" />
@@ -50,7 +49,7 @@ export const DataAnalyticsCard = () => {
 
 export const ResumeCard = () => {
   return (
-    <FloatingCard className="w-72 h-48" delay={1}>
+    <FloatingCard className="w-72 h-48" delay="delayed">
       <div className="flex items-start justify-between mb-4">
         <div>
           <h3 className="text-base font-bold text-foreground">Your Resume</h3>
@@ -80,7 +79,7 @@ export const ResumeCard = () => {
 };
 export const ProfileCard = () => {
   return (
-    <FloatingCard className="w-72 h-44" delay={1.5}>
+    <FloatingCard className="w-72 h-44" delay="delayed-2">
       <div className="flex items-center space-x-4 mb-4">
         <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center">
           <User className="w-8 h-8 text-primary" />
@@ -104,7 +103,7 @@ export const ProfileCard = () => {
 };
 export const PersonalCard = () => {
   return (
-    <FloatingCard className="w-52 h-36" delay={2}>
+    <FloatingCard className="w-52 h-36" delay="delayed-2">
       <div className="flex items-center space-x-3 mb-3">
         <h3 className="text-sm font-semibold text-foreground">Personal</h3>
       </div>
@@ -125,7 +124,7 @@ export const PersonalCard = () => {
 
 export const ResumeBuilderCard = () => {
   return (
-    <FloatingCard className="w-72 h-48 flex flex-col" delay={0.2}>
+    <FloatingCard className="w-72 h-48 flex flex-col" delay="none">
       <div className="flex items-start justify-between mb-3">
         <h3 className="text-base font-bold text-foreground">Resume Builder</h3>
         <div className="p-1.5 bg-primary/10 rounded-lg">
