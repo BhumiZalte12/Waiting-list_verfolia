@@ -24,7 +24,7 @@ export default function Navbar() {
 
   const navLinks = [
     { title: "Home", path: "/" },
-   
+    
   ];
 
   const handleFeatureClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -52,7 +52,7 @@ export default function Navbar() {
             }}
           >
             {/* Logo Section */}
-            <div className="flex items-center">
+            <div className="flex-1 flex justify-start">
               <Link to="/" className="flex items-center space-x-3">
                 <div className="w-9 h-9 bg-white rounded-lg flex items-center justify-center overflow-hidden">
                    <img src="/Logo.png" alt="Verfolia Logo" className="w-full h-full object-cover" />
@@ -119,7 +119,7 @@ export default function Navbar() {
             </div>
 
             {/* Right Side Actions */}
-            <div className="flex items-center space-x-3">
+            <div className="flex-1 flex justify-end">
                 {/* Mobile Menu Button */}
                 <button
                   onClick={() => setMobileMenuOpen(true)}
@@ -140,7 +140,7 @@ export default function Navbar() {
                   <div className="flex items-center justify-between">
                       <Link to="/" className="flex items-center space-x-3">
                           <div className="w-9 h-9 bg-white rounded-lg flex items-center justify-center overflow-hidden">
-                            <img src="/logo.png" alt="Verfolia Logo" className="w-full h-full object-cover" />
+                            <img src="/Logo.png" alt="Verfolia Logo" className="w-full h-full object-cover" />
                           </div>
                           <span className="text-white text-2xl font-bold tracking-tight">
                           Verfolia
